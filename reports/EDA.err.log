@@ -1,0 +1,103 @@
+Traceback (most recent call last):
+  File "C:\Users\Usuario\miniconda3\envs\ml_venv\lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Usuario\miniconda3\envs\ml_venv\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\Usuario\miniconda3\envs\ml_venv\lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\Usuario\miniconda3\envs\ml_venv\lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\Usuario\miniconda3\envs\ml_venv\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Users\Usuario\miniconda3\envs\ml_venv\lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\Usuario\miniconda3\envs\ml_venv\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Usuario\miniconda3\envs\ml_venv\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# 2. Dividir en entrenamiento/prueba
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+------------------
+
+
+[1;31m----------------------------------------------------------------[0m
+[1;31mValueError[0m                     Traceback (most recent call last)
+Cell [1;32mIn[43], line 2[0m
+[0;32m      1[0m [38;5;66;03m# 2. Dividir en entrenamiento/prueba[39;00m
+[1;32m----> 2[0m X_train, X_test, y_train, y_test [38;5;241m=[39m [43mtrain_test_split[49m[43m([49m
+[0;32m      3[0m [43m    [49m[43mX[49m[43m,[49m[43m [49m[43my[49m[43m,[49m[43m [49m[43mtest_size[49m[38;5;241;43m=[39;49m[38;5;241;43m0.2[39;49m[43m,[49m[43m [49m[43mrandom_state[49m[38;5;241;43m=[39;49m[38;5;241;43m42[39;49m[43m,[49m[43m [49m[43mstratify[49m[38;5;241;43m=[39;49m[43my[49m
+[0;32m      4[0m [43m)[49m
+
+File [1;32m~\miniconda3\envs\ml_venv\lib\site-packages\sklearn\utils\_param_validation.py:216[0m, in [0;36mvalidate_params.<locals>.decorator.<locals>.wrapper[1;34m(*args, **kwargs)[0m
+[0;32m    210[0m [38;5;28;01mtry[39;00m:
+[0;32m    211[0m     [38;5;28;01mwith[39;00m config_context(
+[0;32m    212[0m         skip_parameter_validation[38;5;241m=[39m(
+[0;32m    213[0m             prefer_skip_nested_validation [38;5;129;01mor[39;00m global_skip_validation
+[0;32m    214[0m         )
+[0;32m    215[0m     ):
+[1;32m--> 216[0m         [38;5;28;01mreturn[39;00m func([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m    217[0m [38;5;28;01mexcept[39;00m InvalidParameterError [38;5;28;01mas[39;00m e:
+[0;32m    218[0m     [38;5;66;03m# When the function is just a wrapper around an estimator, we allow[39;00m
+[0;32m    219[0m     [38;5;66;03m# the function to delegate validation to the estimator, but we replace[39;00m
+[0;32m    220[0m     [38;5;66;03m# the name of the estimator by the name of the function in the error[39;00m
+[0;32m    221[0m     [38;5;66;03m# message to avoid confusion.[39;00m
+[0;32m    222[0m     msg [38;5;241m=[39m re[38;5;241m.[39msub(
+[0;32m    223[0m         [38;5;124mr[39m[38;5;124m"[39m[38;5;124mparameter of [39m[38;5;124m\[39m[38;5;124mw+ must be[39m[38;5;124m"[39m,
+[0;32m    224[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mparameter of [39m[38;5;132;01m{[39;00mfunc[38;5;241m.[39m[38;5;18m__qualname__[39m[38;5;132;01m}[39;00m[38;5;124m must be[39m[38;5;124m"[39m,
+[0;32m    225[0m         [38;5;28mstr[39m(e),
+[0;32m    226[0m     )
+
+File [1;32m~\miniconda3\envs\ml_venv\lib\site-packages\sklearn\model_selection\_split.py:2872[0m, in [0;36mtrain_test_split[1;34m(test_size, train_size, random_state, shuffle, stratify, *arrays)[0m
+[0;32m   2868[0m         CVClass [38;5;241m=[39m ShuffleSplit
+[0;32m   2870[0m     cv [38;5;241m=[39m CVClass(test_size[38;5;241m=[39mn_test, train_size[38;5;241m=[39mn_train, random_state[38;5;241m=[39mrandom_state)
+[1;32m-> 2872[0m     train, test [38;5;241m=[39m [38;5;28mnext[39m([43mcv[49m[38;5;241;43m.[39;49m[43msplit[49m[43m([49m[43mX[49m[38;5;241;43m=[39;49m[43marrays[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[43m,[49m[43m [49m[43my[49m[38;5;241;43m=[39;49m[43mstratify[49m[43m)[49m)
+[0;32m   2874[0m train, test [38;5;241m=[39m ensure_common_namespace_device(arrays[[38;5;241m0[39m], train, test)
+[0;32m   2876[0m [38;5;28;01mreturn[39;00m [38;5;28mlist[39m(
+[0;32m   2877[0m     chain[38;5;241m.[39mfrom_iterable(
+[0;32m   2878[0m         (_safe_indexing(a, train), _safe_indexing(a, test)) [38;5;28;01mfor[39;00m a [38;5;129;01min[39;00m arrays
+[0;32m   2879[0m     )
+[0;32m   2880[0m )
+
+File [1;32m~\miniconda3\envs\ml_venv\lib\site-packages\sklearn\model_selection\_split.py:2405[0m, in [0;36mStratifiedShuffleSplit.split[1;34m(self, X, y, groups)[0m
+[0;32m   2400[0m [38;5;28;01mif[39;00m groups [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m   2401[0m     warnings[38;5;241m.[39mwarn(
+[0;32m   2402[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mThe groups parameter is ignored by [39m[38;5;132;01m{[39;00m[38;5;28mself[39m[38;5;241m.[39m[38;5;18m__class__[39m[38;5;241m.[39m[38;5;18m__name__[39m[38;5;132;01m}[39;00m[38;5;124m"[39m,
+[0;32m   2403[0m         [38;5;167;01mUserWarning[39;00m,
+[0;32m   2404[0m     )
+[1;32m-> 2405[0m y [38;5;241m=[39m [43mcheck_array[49m[43m([49m[43my[49m[43m,[49m[43m [49m[43minput_name[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43my[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mensure_2d[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m[43m [49m[43mdtype[49m[38;5;241;43m=[39;49m[38;5;28;43;01mNone[39;49;00m[43m)[49m
+[0;32m   2406[0m [38;5;28;01mreturn[39;00m [38;5;28msuper[39m()[38;5;241m.[39msplit(X, y, groups)
+
+File [1;32m~\miniconda3\envs\ml_venv\lib\site-packages\sklearn\utils\validation.py:1107[0m, in [0;36mcheck_array[1;34m(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_writeable, force_all_finite, ensure_all_finite, ensure_non_negative, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator, input_name)[0m
+[0;32m   1101[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[0;32m   1102[0m         [38;5;124m"[39m[38;5;124mFound array with dim [39m[38;5;132;01m%d[39;00m[38;5;124m. [39m[38;5;132;01m%s[39;00m[38;5;124m expected <= 2.[39m[38;5;124m"[39m
+[0;32m   1103[0m         [38;5;241m%[39m (array[38;5;241m.[39mndim, estimator_name)
+[0;32m   1104[0m     )
+[0;32m   1106[0m [38;5;28;01mif[39;00m ensure_all_finite:
+[1;32m-> 1107[0m     [43m_assert_all_finite[49m[43m([49m
+[0;32m   1108[0m [43m        [49m[43marray[49m[43m,[49m
+[0;32m   1109[0m [43m        [49m[43minput_name[49m[38;5;241;43m=[39;49m[43minput_name[49m[43m,[49m
+[0;32m   1110[0m [43m        [49m[43mestimator_name[49m[38;5;241;43m=[39;49m[43mestimator_name[49m[43m,[49m
+[0;32m   1111[0m [43m        [49m[43mallow_nan[49m[38;5;241;43m=[39;49m[43mensure_all_finite[49m[43m [49m[38;5;241;43m==[39;49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mallow-nan[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[0;32m   1112[0m [43m    [49m[43m)[49m
+[0;32m   1114[0m [38;5;28;01mif[39;00m copy:
+[0;32m   1115[0m     [38;5;28;01mif[39;00m _is_numpy_namespace(xp):
+[0;32m   1116[0m         [38;5;66;03m# only make a copy if `array` and `array_orig` may share memory`[39;00m
+
+File [1;32m~\miniconda3\envs\ml_venv\lib\site-packages\daal4py\sklearn\utils\validation.py:131[0m, in [0;36m_assert_all_finite[1;34m(X, allow_nan, msg_dtype, estimator_name, input_name)[0m
+[0;32m    129[0m [38;5;28;01mif[39;00m dt [38;5;241m==[39m np[38;5;241m.[39mfloat64:
+[0;32m    130[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m d4p[38;5;241m.[39mdaal_assert_all_finite(x_for_daal, allow_nan, [38;5;241m0[39m):
+[1;32m--> 131[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(err)
+[0;32m    132[0m [38;5;28;01melif[39;00m dt [38;5;241m==[39m np[38;5;241m.[39mfloat32:
+[0;32m    133[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m d4p[38;5;241m.[39mdaal_assert_all_finite(x_for_daal, allow_nan, [38;5;241m1[39m):
+
+[1;31mValueError[0m: Input y contains NaN, infinity or a value too large for dtype('float64').
+
